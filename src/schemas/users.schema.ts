@@ -20,7 +20,7 @@ export const UserSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['trainee', 'coach', 'admin'],
+    enum: ['admin','level1','level2'],
     required: true,
     default: 'trainee',
   },

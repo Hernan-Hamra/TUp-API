@@ -3,7 +3,7 @@ export interface User extends Document{
   profilePhoto?: string; // Foto de perfil del usuario
   username: string; // Nombre de usuario único
   password: string; // Contraseña del usuario
-  role: 'trainee' | 'coach' | 'admin'; // Rol del usuario
+  role: 'level1' | 'level2' | 'admin'; // Rol del usuario
   genre: 'M' | 'F' | 'X'; // Género del usuario
   target:
     | 'strength'

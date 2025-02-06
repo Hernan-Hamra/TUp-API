@@ -4,7 +4,7 @@ import { UsersController } from './users.controller';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from '../schemas/users.schema'; // Asegúrate de que la ruta es correcta
-import { AuthJwtModule } from '../auth-jwt/auth-jwt.module'; // 👈 Importamos AuthJwtModule
+import { AuthJwtModule } from '../auth/jwtAuth/jwt.module'; // 👈 Importamos AuthJwtModule
 
 @Module({
   imports: [
