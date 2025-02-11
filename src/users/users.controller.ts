@@ -13,7 +13,7 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { JwtGuardAuth } from '../auth/guards/jwt.guard'; // Importar el Guard
+import { JwtGuard } from '../auth/guards/jwt.guard'; // Importar el Guard
 import { RoleGuard } from 'src/auth/guards/role/role.guard';
 import { Roles } from 'src/auth/guards/decorators';
 
@@ -29,33 +29,33 @@ export class UsersController {
   }
 
   @Get()
-  @UseGuards(JwtGuardAuth) // 👈 Protegemos todas las demás rutas
+  @UseGuards(JwtGuard) // 👈 Protegemos todas las demás rutas
   findAll() {
     return this.usersService.findAll();
   }
 
   @Get(':id')
-  @UseGuards(JwtGuardAuth)
+  @UseGuards(JwtGuard)
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
   }
 
   @Patch(':id')
-  @UseGuards(JwtGuardAuth)
+  @UseGuards(JwtGuard)
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
   @Roles('admin')
-  @UseGuards(JwtGuardAuth, RoleGuard)
+  @UseGuards(JwtGuard, RoleGuard)
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
 
   @Patch(':id/status') // Nuevo endpoint para cambiar el estado
   @Roles('admin')
-  @UseGuards(JwtGuardAuth, RoleGuard)
+  @UseGuards(JwtGuard, RoleGuard)
   updateStatus(@Param('id') id: string) {
     return this.usersService.updateStatus(id);
   }

@@ -9,8 +9,8 @@ interface User {
 }
 
 @Injectable()
-export class JwtServiceAuth {
-  constructor(private readonly jwtService: JwtService) {}
+export class MyJwtService {
+  constructor(private readonly jwtService: JwtService) {} // ✅ Corrección aquí
 
   // Método para generar un token
   generateToken(user: User) {
@@ -31,14 +31,14 @@ export class JwtServiceAuth {
       const decoded = this.jwtService.verify(token, {
         secret: process.env.JWT_SECRET_KEY,
       });
-      return { success: true, data: decoded }; // Si el token es válido, devuelve el payload decodificado
+      return { success: true, data: decoded };
     } catch (error) {
-      console.error('Token inválido:', error); // Registrar el error
+      console.error('Token inválido:', error);
       return {
         success: false,
         message: 'Token inválido',
         error: error.message,
-      }; // Devolver un mensaje de error detallado
+      };
     }
   }
 }

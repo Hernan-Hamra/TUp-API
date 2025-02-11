@@ -4,12 +4,12 @@ import { UsersController } from './users.controller';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from '../schemas/users.schema'; // Asegúrate de que la ruta es correcta
-import { AuthJwtModule } from '../auth/jwtAuth/jwt.module'; // 👈 Importamos AuthJwtModule
+import { MyJwtModule } from '../auth/jwtAuth/jwt.module'; // 👈 Importamos AuthJwtModule
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
-    AuthJwtModule, // 👈 Se agrega para que UsersModule pueda usar AuthJwtService
+    MyJwtModule, // 👈 Se agrega para que UsersModule pueda usar AuthJwtService
   ],
   controllers: [UsersController],
   providers: [UsersService],

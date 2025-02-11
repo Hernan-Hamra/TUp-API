@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtServiceAuth } from './jwt.service';
-import { JwtControllerAuth } from './jwt.controller';
+import { MyJwtService } from './jwt.service';
+import { JwtController } from './jwt.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config'; // 👈 Importamos ConfigModule y ConfigService
 
 @Module({
@@ -18,8 +18,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config'; // 👈 Importamos
       }),
     }),
   ],
-  controllers: [JwtControllerAuth],
-  providers: [JwtServiceAuth],
-  exports: [JwtServiceAuth, JwtModule], // 👈 Exportamos AuthJwtService y JwtModule si otros módulos lo usan
+  controllers: [JwtController],
+  providers: [MyJwtService],
+  exports: [MyJwtService, JwtModule], // 👈 Exportamos AuthJwtService y JwtModule si otros módulos lo usan
 })
-export class AuthJwtModule {}
+export class MyJwtModule {}

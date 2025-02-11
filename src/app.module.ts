@@ -4,7 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './users/users.module';
 import { ExercisesModule } from './exercises/exercises.module';
 import { TrainingsModule } from './trainings/trainings.module';
-import { AuthJwtModule } from './auth/jwtAuth/jwt.module';
+import { MyJwtModule } from './auth/jwtAuth/jwt.module';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { AuthJwtModule } from './auth/jwtAuth/jwt.module';
     UsersModule,
     ExercisesModule,
     TrainingsModule,
-    AuthJwtModule,
+    MyJwtModule,
   ],
 })
 export class AppModule {}
