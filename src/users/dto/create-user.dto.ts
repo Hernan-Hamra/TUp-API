@@ -68,7 +68,7 @@ export class CreateUserDto {
   password: string;
 
   @IsString()
-  @IsEnum(['trainee', 'coach', 'admin'])
+  @IsEnum(['admin', 'level1', 'level2'])
   role: string;
 
   @IsString()

@@ -20,16 +20,11 @@ export const UserSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['admin','level1','level2'],
+    enum: ['admin', 'level1', 'level2'],
     required: true,
-    default: 'trainee',
+    default: 'level2',
   },
-  genre: {
-    type: String,
-    required: true,
-    enum: ['M', 'F', 'X'],
-    default: 'X',
-  },
+  genre: { type: String, required: true, enum: ['M', 'F', 'X'], default: 'X' },
   target: {
     type: String,
     enum: [

@@ -18,7 +18,7 @@ export class JwtGuard implements CanActivate {
 
     try {
       const decoded = await this.JwtService.validateToken(token); // ✅ Usamos el método de JwtServiceAuth
-      console.log(decoded);
+    
       request.user = decoded; // ✅ Guardamos el usuario en la request
       return true;
     } catch (error) {
