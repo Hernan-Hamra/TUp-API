@@ -1,18 +1,18 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from '../schemas/users.schema'; // Asegúrate de que la ruta es correcta
-import { MyJwtModule } from '../auth/jwtAuth/jwt.module'; // 👈 Importamos AuthJwtModule
+import { MyJwtModule } from '../auth/jwtAuth/jwt.module'; // 👈 Importamos MyJwtModule con forwardRef()
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
-    MyJwtModule, // 👈 Se agrega para que UsersModule pueda usar AuthJwtService
+    forwardRef(() => MyJwtModule), // 👈 Se usa forwardRef para evitar la dependencia circular
   ],
   controllers: [UsersController],
   providers: [UsersService],
-  exports: [UsersService], // 👈 Exportamos UsersService si otros módulos lo necesitan
+  exports: [UsersService],
 })
 export class UsersModule {}

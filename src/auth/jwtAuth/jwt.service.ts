@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 interface User {
   email: string;
   role: string;
-  status: string;
+  status: boolean;
 }
 
 @Injectable()
