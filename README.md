@@ -1,6 +1,7 @@
-# TUpNestJs
+# TUp-API
 
-# "It's an app that creates and manages trainings."
+**TUp-API** is a backend application designed to manage and provide services for training plans, exercises, and user progress. Built using **NestJS**, it serves as the core API for the **TUp** ecosystem.
+
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
